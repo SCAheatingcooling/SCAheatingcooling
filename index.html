@@ -7,13 +7,8 @@
   <meta
     id="meta-description"
     name="description"
-    content="SCA Heating and Cooling provides fast and reliable heating and AC services in Lake of the Ozarks, Missouri with fast call now and request service options."
+    content="SCA Heating and Cooling provides fast and reliable heating and AC services in Lake of the Ozarks, Missouri with easy online booking and emergency support."
   >
-  <link rel="icon" href="assets/sca-logo-96.png" type="image/png">
-  <meta property="og:title" content="SCA Heating &amp; Cooling | HVAC Services in Missouri">
-  <meta property="og:description" content="Fast and reliable heating and AC services in Lake of the Ozarks, Missouri. Call now or request service online.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/sca-logo-320.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -30,26 +25,26 @@
           <a class="brand" href="#hero" aria-label="SCA Heating and Cooling home" data-i18n-aria-label="aria.home">
             <img
               class="brand__logo"
-              src="assets/sca-logo-96.png"
+              src="assets/sca-logo.png"
               alt="SCA Heating and Cooling logo"
-              width="96"
-              height="64"
               data-i18n-alt="aria.logo_alt"
             >
           </a>
           <a class="topbar__phone" href="tel:+15733177239" aria-label="Call SCA Heating and Cooling at 573-317-7239" data-i18n-aria-label="aria.call_phone">
-            <span class="topbar__phone-label">Call Now</span>
+            <span class="topbar__phone-label" data-i18n="common.call">Call</span>
             <span class="topbar__phone-number">(573) 317-7239</span>
           </a>
         </div>
         <nav class="nav" aria-label="Primary" data-i18n-aria-label="aria.primary_nav">
           <a href="#services" data-i18n="nav.services">Services</a>
-          <a href="#booking" data-i18n="nav.booking">Request Service</a>
+      
           <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="topbar__actions">
-          <a class="button button--small request-trigger" href="#booking">Request Service</a>
-        </div>
+          <div class="language-switcher" role="group" aria-label="Language selector" data-i18n-aria-label="aria.language_selector">
+            <button class="language-switcher__button" type="button" data-language-switch="en" lang="en">EN</button>
+            <button class="language-switcher__button" type="button" data-language-switch="fr" lang="fr">FR</button>
+            <button class="language-switcher__button" type="button" data-language-switch="es" lang="es">ES</button>
       </div>
     </header>
 
@@ -59,14 +54,14 @@
           <div class="hero__content reveal">
             <p class="eyebrow" data-i18n="hero.eyebrow">Trusted HVAC Support in Lake of the Ozarks, Missouri</p>
             <h1 data-i18n="hero.title">Fast &amp; Reliable Heating &amp; AC Services</h1>
-            <p class="hero__lead">Call now or send a service request in minutes</p>
-            <p class="hero__copy">
+            <p class="hero__lead" data-i18n="hero.lead">Book your appointment online in minutes</p>
+            <p class="hero__copy" data-i18n="hero.copy">
               Local HVAC experts for urgent repairs, seasonal tune-ups, and full system installs.
-              Clear communication, fast dispatch, and dependable service when comfort matters most.
+              Clear scheduling, fast dispatch, and dependable service when comfort matters most.
             </p>
             <div class="hero__actions">
-              <a class="button button--ghost" href="tel:+15733177239">Call Now</a>
-              <a class="button request-trigger" href="#booking">Request Service</a>
+              <a class="button request-trigger" href="#booking" data-i18n="common.book_now">Book Now</a>
+              <a class="button button--ghost" href="tel:+15733177239" data-i18n="hero.call_button">Call (573) 317-7239</a>
             </div>
             <div class="hero__stats" aria-label="Key highlights" data-i18n-aria-label="aria.key_highlights">
               <div class="stat-card">
@@ -191,15 +186,12 @@
         <div class="container booking__layout">
           <div class="booking__aside">
             <div class="booking__intro reveal">
-              <p class="eyebrow">Request Service</p>
-              <h2>Call now for immediate help or send us your service request</h2>
-              <p>
-                Tell us what is going on with your system and we will follow up shortly. If you need urgent HVAC help, call us now.
+              <p class="eyebrow" data-i18n="booking.eyebrow">Request Service</p>
+              <h2 data-i18n="booking.title">Tell us what you need and choose the best appointment window</h2>
+              <p data-i18n="booking.copy">
+                Open the contact form, then pick the date and time that works best for your home.
               </p>
-              <div class="booking__cta-row">
-                <a class="button button--ghost" href="tel:+15733177239">Call Now</a>
-                <a class="button request-trigger" href="#request-form-card">Request Service</a>
-              </div>
+              <a class="button request-trigger" href="#request-modal" data-i18n="booking.open_form">Open Request Form</a>
             </div>
 
             <aside class="booking-emergency reveal reveal--delay" aria-label="24 hour emergency service">
@@ -220,85 +212,8 @@
             </aside>
           </div>
 
-          <div class="lead-card reveal reveal--delay" id="request-form-card">
-            <div class="lead-card__header">
-              <p class="lead-card__eyebrow">Request Service</p>
-              <h3>Tell us about your HVAC issue</h3>
-              <p>Fill out the form below and we will contact you shortly. Need a faster response? Call <a href="tel:+15733177239">(573) 317-7239</a>.</p>
-            </div>
-
-            <div class="lead-card__highlights" aria-label="Contact highlights">
-              <div class="lead-card__highlight">
-                <span>Phone</span>
-                <a href="tel:+15733177239">(573) 317-7239</a>
-              </div>
-              <div class="lead-card__highlight">
-                <span>Business Hours</span>
-                <p>Mon-Sat: 7:30 AM-6:00 PM<br>24/7 Emergency Service Only</p>
-              </div>
-            </div>
-
-            <form class="booking-form lead-form" id="booking-form" novalidate>
-              <label class="field">
-                <span class="field__label">Full Name *</span>
-                <input id="request-name" type="text" name="name" autocomplete="name" required>
-              </label>
-
-              <label class="field">
-                <span class="field__label">Phone *</span>
-                <input type="tel" name="phone" autocomplete="tel" required>
-              </label>
-
-              <label class="field">
-                <span class="field__label">Email</span>
-                <input type="email" name="email" autocomplete="email">
-              </label>
-
-              <label class="field">
-                <span class="field__label">Service Address</span>
-                <input type="text" name="address" autocomplete="street-address">
-              </label>
-
-              <label class="field">
-                <span class="field__label">Type of Service</span>
-                <select name="service">
-                  <option value="">Select service type</option>
-                  <option value="AC Repair">AC Repair</option>
-                  <option value="Heating Repair">Heating Repair</option>
-                  <option value="Installation and Maintenance">Installation &amp; Maintenance</option>
-                  <option value="Maintenance Plans">Maintenance Plans</option>
-                  <option value="Ductless Mini-Splits">Ductless Mini-Splits</option>
-                  <option value="Indoor Air Quality">Indoor Air Quality</option>
-                  <option value="Water Heater Services">Water Heater Services</option>
-                  <option value="Humidifiers">Humidifiers</option>
-                  <option value="Dehumidifiers">Dehumidifiers</option>
-                  <option value="Smart Thermostats and Controls">Smart Thermostats &amp; Controls</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span class="field__label">Urgency</span>
-                <select name="urgency">
-                  <option value="">Select urgency</option>
-                  <option value="Emergency - ASAP">Emergency - ASAP</option>
-                  <option value="Same-Day Preferred">Same-Day Preferred</option>
-                  <option value="Within 1-2 Days">Within 1-2 Days</option>
-                  <option value="Flexible Scheduling">Flexible Scheduling</option>
-                </select>
-              </label>
-
-              <label class="field field--full">
-                <span class="field__label">Message *</span>
-                <textarea name="message" rows="5" required></textarea>
-              </label>
-
-              <p class="lead-form__status" id="request-status" role="status" aria-live="polite"></p>
-
-              <div class="lead-card__actions">
-                <button class="button button--block" id="request-submit" type="submit">Request Service</button>
-              </div>
-            </form>
-          </div>
+          
+            
         </div>
       </section>
 
@@ -306,13 +221,10 @@
         <div class="container">
           <div class="cta-card reveal">
             <div>
-              <p class="eyebrow">Need Fast HVAC Help?</p>
-              <h2>Call now or send a service request today</h2>
+              <p class="eyebrow" data-i18n="cta.eyebrow">Ready to Book?</p>
+              <h2 data-i18n="cta.title">Don't wait - secure your appointment today</h2>
             </div>
-            <div class="cta-card__actions">
-              <a class="button button--ghost" href="tel:+15733177239">Call Now</a>
-              <a class="button request-trigger" href="#request-form-card">Request Service</a>
-            </div>
+            <a class="button request-trigger" href="#booking" data-i18n="cta.button">Schedule Now</a>
           </div>
         </div>
       </section>
@@ -320,11 +232,13 @@
       <section class="contact section" id="contact">
         <div class="container contact__grid">
           <div class="section-heading reveal">
-            <p class="eyebrow">Contact</p>
-            <h2>Reach SCA Heating &amp; Cooling anytime</h2>
-            <p>Call us for fast HVAC service in Lake of the Ozarks, Missouri.</p>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+            <h2 data-i18n="contact.title">Reach SCA Heating &amp; Cooling anytime</h2>
+            <p data-i18n="contact.service_area_copy">
+              Service area: Lake of the Ozarks, Missouri
+            </p>
             <div class="contact-social" aria-label="Social media links" data-i18n-aria-label="aria.social_links">
-              <p class="contact-social__label">Find us online</p>
+              <p class="contact-social__label" data-i18n="contact.find_us_online">Find us online</p>
               <div class="contact-social__links">
                 <a
                   class="contact-social__link"
@@ -362,20 +276,20 @@
 
           <div class="contact-card reveal">
             <div class="contact-item">
-              <span class="contact-item__label">Owner</span>
+              <span class="contact-item__label" data-i18n="contact.owner_label">Owner</span>
               <p>Sterlyn Calderon</p>
             </div>
             <div class="contact-item">
-              <span class="contact-item__label">Phone</span>
+              <span class="contact-item__label" data-i18n="contact.phone_label">Phone</span>
               <a href="tel:+15733177239">(573) 317-7239</a>
             </div>
             <div class="contact-item">
-              <span class="contact-item__label">Business Hours</span>
-              <p>Mon-Sat: 7:30 AM-6:00 PM<br>24/7 Emergency Service Only</p>
+              <span class="contact-item__label" data-i18n="contact.hours_label">Business Hours</span>
+              <p data-i18n-html="contact.hours_value">Mon-Sat: 7:30 AM-6:00 PM<br>24/7 Emergency Service Only</p>
             </div>
             <div class="contact-item">
-              <span class="contact-item__label">Service Area</span>
-              <p>Lake of the Ozarks, Missouri</p>
+              <span class="contact-item__label" data-i18n="contact.area_label">Service Area</span>
+              <p data-i18n="contact.area_value">Lake of the Ozarks, Missouri</p>
             </div>
           </div>
         </div>
@@ -387,16 +301,94 @@
         <a class="footer-brand" href="#hero" aria-label="SCA Heating and Cooling home" data-i18n-aria-label="aria.home">
           <img
             class="footer-brand__logo"
-            src="assets/sca-logo-320.png"
+            src="assets/sca-logo.png"
             alt="SCA Heating and Cooling logo"
-            width="320"
-            height="213"
             data-i18n-alt="aria.logo_alt"
           >
         </a>
-        <p>&copy; <span id="year"></span> <span>SCA Heating &amp; Cooling. All rights reserved.</span></p>
+        <p>&copy; <span id="year"></span> <span data-i18n="footer.rights">SCA Heating &amp; Cooling. All rights reserved.</span></p>
       </div>
     </footer>
+  </div>
+
+  <div class="request-modal" id="request-modal" aria-hidden="true">
+    <div class="request-modal__backdrop" data-request-close></div>
+    <div class="request-modal__panel" role="dialog" aria-modal="true" aria-labelledby="request-modal-title">
+      <button class="request-modal__close" type="button" data-request-close aria-label="Close request form" data-i18n="form.close" data-i18n-aria-label="form.close_aria">
+        Close
+      </button>
+      <div class="request-card" id="request-card">
+        <div class="request-card__accent" aria-hidden="true"></div>
+        <h3 class="request-card__title" id="request-modal-title" data-i18n="form.title">Contact Us</h3>
+        <form class="booking-form request-form" id="booking-form" novalidate>
+          <label class="field">
+            <span class="field__sr" data-i18n="form.name_label">Full Name</span>
+            <input id="request-name" type="text" name="name" placeholder="Full Name*" required data-i18n-placeholder="form.name_placeholder">
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.email_label">Email</span>
+            <input type="email" name="email" placeholder="Email*" required data-i18n-placeholder="form.email_placeholder">
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.phone_label">Phone</span>
+            <input type="tel" name="phone" placeholder="Phone*" required data-i18n-placeholder="form.phone_placeholder">
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.customer_type_label">Are You a New Customer?</span>
+            <select name="customerType" required>
+              <option value="" data-i18n="form.customer_type_placeholder">Select customer type*</option>
+              <option value="Yes - New Customer" data-i18n="form.customer_type_new">Yes - New Customer</option>
+              <option value="No - Existing Customer" data-i18n="form.customer_type_existing">No - Existing Customer</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.address_label">Address</span>
+            <input type="text" name="address" placeholder="Service Address*" required data-i18n-placeholder="form.address_placeholder">
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.service_label">Type of Service</span>
+            <select name="service" required>
+              <option value="" data-i18n="form.service_placeholder">Select service type*</option>
+              <option value="AC Repair" data-i18n="services.card1_title">AC Repair</option>
+              <option value="Heating Repair" data-i18n="services.card2_title">Heating Repair</option>
+              <option value="Installation and Maintenance" data-i18n="services.card3_title">Installation &amp; Maintenance</option>
+              <option value="Maintenance Plans" data-i18n="services.offer1">Maintenance Plans</option>
+              <option value="Ductless Mini-Splits" data-i18n="services.offer2">Ductless Mini-Splits</option>
+              <option value="Indoor Air Quality" data-i18n="services.offer3">Indoor Air Quality</option>
+              <option value="Water Heater Services" data-i18n="services.offer4">Water Heater Services</option>
+              <option value="Humidifiers" data-i18n="services.offer5">Humidifiers</option>
+              <option value="Dehumidifiers" data-i18n="services.offer6">Dehumidifiers</option>
+              <option value="Smart Thermostats and Controls" data-i18n="services.offer7">Smart Thermostats &amp; Controls</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.urgency_label">Urgency</span>
+            <select name="urgency" required>
+              <option value="" data-i18n="form.urgency_placeholder">Select urgency*</option>
+              <option value="Emergency - ASAP" data-i18n="form.urgency_emergency">Emergency - ASAP</option>
+              <option value="Same-Day Preferred" data-i18n="form.urgency_same_day">Same-Day Preferred</option>
+              <option value="Within 1-2 Days" data-i18n="form.urgency_soon">Within 1-2 Days</option>
+              <option value="Flexible Scheduling" data-i18n="form.urgency_flexible">Flexible Scheduling</option>
+            </select>
+          </label>
+
+          <label class="field field--full">
+            <span class="field__sr" data-i18n="form.message_label">Message</span>
+            <textarea name="message" placeholder="Message*" rows="5" required data-i18n-placeholder="form.message_placeholder"></textarea>
+          </label>
+        </form>
+        <p class="request-card__note" data-i18n="form.note">Complete the form, then continue to scheduling to choose your appointment time.</p>
+        <button class="button button--block request-modal__continue" id="request-modal-continue" type="button" data-i18n="form.continue">
+          Continue to Scheduling
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="floating-actions" aria-label="Quick actions" data-i18n-aria-label="aria.quick_actions">
