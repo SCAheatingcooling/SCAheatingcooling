@@ -37,7 +37,7 @@
         </div>
         <nav class="nav" aria-label="Primary" data-i18n-aria-label="aria.primary_nav">
           <a href="#services" data-i18n="nav.services">Services</a>
-      
+          <a href="#booking" data-i18n="nav.booking">Booking</a>
           <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="topbar__actions">
@@ -45,6 +45,9 @@
             <button class="language-switcher__button" type="button" data-language-switch="en" lang="en">EN</button>
             <button class="language-switcher__button" type="button" data-language-switch="fr" lang="fr">FR</button>
             <button class="language-switcher__button" type="button" data-language-switch="es" lang="es">ES</button>
+          </div>
+          <a class="button button--small request-trigger" href="#booking" data-i18n="common.book_now">Book Now</a>
+        </div>
       </div>
     </header>
 
@@ -212,8 +215,37 @@
             </aside>
           </div>
 
-          
-            
+          <div class="scheduler-card reveal reveal--delay" aria-labelledby="scheduler-title">
+            <div class="scheduler-card__header">
+              <div>
+                <p class="scheduler-card__eyebrow" data-i18n="scheduler.eyebrow">Scheduling System</p>
+                <h3 id="scheduler-title" data-i18n="scheduler.title">Available Dates &amp; Times</h3>
+                <p class="scheduler-card__hours" data-i18n="scheduler.hours">Regular booking hours: 7:30 AM - 6:00 PM</p>
+              </div>
+              <div class="scheduler-pill" data-i18n="scheduler.pill">Calendly-Style Demo</div>
+            </div>
+
+            <div class="scheduler-card__body">
+              <div class="scheduler-panel">
+                <p class="scheduler-panel__title" data-i18n="scheduler.date_title">Choose a date</p>
+                <div class="date-list" id="date-list" aria-label="Available dates" data-i18n-aria-label="scheduler.date_list_aria"></div>
+              </div>
+
+              <div class="scheduler-panel">
+                <p class="scheduler-panel__title" data-i18n="scheduler.time_title">Choose a time</p>
+                <div class="time-list" id="time-list" aria-label="Available times" data-i18n-aria-label="scheduler.time_list_aria"></div>
+              </div>
+            </div>
+
+            <div class="booking-summary" id="booking-summary">
+              <p class="booking-summary__label" data-i18n="scheduler.summary_label">Selected appointment</p>
+              <p class="booking-summary__value">Choose a date and time to continue.</p>
+            </div>
+
+            <button class="button button--block" id="schedule-button" type="submit" form="booking-form" data-i18n="scheduler.schedule_button">
+              Schedule Now
+            </button>
+          </div>
         </div>
       </section>
 
@@ -317,13 +349,77 @@
       <button class="request-modal__close" type="button" data-request-close aria-label="Close request form" data-i18n="form.close" data-i18n-aria-label="form.close_aria">
         Close
       </button>
+      <div class="request-card" id="request-card">
+        <div class="request-card__accent" aria-hidden="true"></div>
+        <h3 class="request-card__title" id="request-modal-title" data-i18n="form.title">Contact Us</h3>
+        <form class="booking-form request-form" id="booking-form" novalidate>
+          <label class="field">
+            <span class="field__sr" data-i18n="form.name_label">Full Name</span>
+            <input id="request-name" type="text" name="name" placeholder="Full Name*" required data-i18n-placeholder="form.name_placeholder">
+          </label>
 
+          <label class="field">
+            <span class="field__sr" data-i18n="form.email_label">Email</span>
+            <input type="email" name="email" placeholder="Email*" required data-i18n-placeholder="form.email_placeholder">
+          </label>
 
-          
+          <label class="field">
+            <span class="field__sr" data-i18n="form.phone_label">Phone</span>
+            <input type="tel" name="phone" placeholder="Phone*" required data-i18n-placeholder="form.phone_placeholder">
+          </label>
 
-         
+          <label class="field">
+            <span class="field__sr" data-i18n="form.customer_type_label">Are You a New Customer?</span>
+            <select name="customerType" required>
+              <option value="" data-i18n="form.customer_type_placeholder">Select customer type*</option>
+              <option value="Yes - New Customer" data-i18n="form.customer_type_new">Yes - New Customer</option>
+              <option value="No - Existing Customer" data-i18n="form.customer_type_existing">No - Existing Customer</option>
+            </select>
+          </label>
 
-          
+          <label class="field">
+            <span class="field__sr" data-i18n="form.address_label">Address</span>
+            <input type="text" name="address" placeholder="Service Address*" required data-i18n-placeholder="form.address_placeholder">
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.service_label">Type of Service</span>
+            <select name="service" required>
+              <option value="" data-i18n="form.service_placeholder">Select service type*</option>
+              <option value="AC Repair" data-i18n="services.card1_title">AC Repair</option>
+              <option value="Heating Repair" data-i18n="services.card2_title">Heating Repair</option>
+              <option value="Installation and Maintenance" data-i18n="services.card3_title">Installation &amp; Maintenance</option>
+              <option value="Maintenance Plans" data-i18n="services.offer1">Maintenance Plans</option>
+              <option value="Ductless Mini-Splits" data-i18n="services.offer2">Ductless Mini-Splits</option>
+              <option value="Indoor Air Quality" data-i18n="services.offer3">Indoor Air Quality</option>
+              <option value="Water Heater Services" data-i18n="services.offer4">Water Heater Services</option>
+              <option value="Humidifiers" data-i18n="services.offer5">Humidifiers</option>
+              <option value="Dehumidifiers" data-i18n="services.offer6">Dehumidifiers</option>
+              <option value="Smart Thermostats and Controls" data-i18n="services.offer7">Smart Thermostats &amp; Controls</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span class="field__sr" data-i18n="form.urgency_label">Urgency</span>
+            <select name="urgency" required>
+              <option value="" data-i18n="form.urgency_placeholder">Select urgency*</option>
+              <option value="Emergency - ASAP" data-i18n="form.urgency_emergency">Emergency - ASAP</option>
+              <option value="Same-Day Preferred" data-i18n="form.urgency_same_day">Same-Day Preferred</option>
+              <option value="Within 1-2 Days" data-i18n="form.urgency_soon">Within 1-2 Days</option>
+              <option value="Flexible Scheduling" data-i18n="form.urgency_flexible">Flexible Scheduling</option>
+            </select>
+          </label>
+
+          <label class="field field--full">
+            <span class="field__sr" data-i18n="form.message_label">Message</span>
+            <textarea name="message" placeholder="Message*" rows="5" required data-i18n-placeholder="form.message_placeholder"></textarea>
+          </label>
+        </form>
+        <p class="request-card__note" data-i18n="form.note">Complete the form, then continue to scheduling to choose your appointment time.</p>
+        <button class="button button--block request-modal__continue" id="request-modal-continue" type="button" data-i18n="form.continue">
+          Continue to Scheduling
+        </button>
+      </div>
     </div>
   </div>
 
