@@ -282,8 +282,8 @@ select {
 }
 
 .brand__logo {
-  width: clamp(4rem, 12vw, 6rem);
-  height: auto;
+  width: 128px;
+  height: 85.29px;
   object-fit: contain;
 }
 
