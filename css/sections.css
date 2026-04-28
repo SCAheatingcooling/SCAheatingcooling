@@ -1,0 +1,793 @@
+/* =============================================
+   HERO
+   ============================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -8rem -7rem auto;
+  width: 18rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(21, 94, 239, 0.15), rgba(224, 50, 43, 0.08));
+  filter: blur(6px);
+}
+
+.hero__grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero__content h1 {
+  font-size: clamp(2.7rem, 9vw, 5.4rem);
+  max-width: 12ch;
+}
+
+.hero__lead {
+  margin: 1rem 0 0.6rem;
+  font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+  font-weight: 700;
+  color: var(--red);
+}
+
+.hero__copy {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+.hero__bullets {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.hero__bullets li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.hero__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(21, 94, 239, 0.18), rgba(224, 50, 43, 0.18));
+  color: var(--blue-deep);
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.hero__visual {
+  display: flex;
+  justify-content: center;
+}
+
+/* =============================================
+   MAP CARD
+   ============================================= */
+
+.map-card {
+  width: min(100%, 28rem);
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 6px);
+  border: 1px solid rgba(21, 94, 239, 0.2);
+  box-shadow: var(--shadow);
+  background: #dceaff;
+}
+
+.map-card__frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-card__overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem;
+  background: linear-gradient(180deg, transparent, rgba(16, 37, 66, 0.82));
+  color: #fff;
+  pointer-events: none;
+}
+
+.map-card__label,
+.map-card__title {
+  margin: 0;
+}
+
+.map-card__label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.map-card__title {
+  margin-top: 0.2rem;
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.map-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--blue-deep);
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  pointer-events: auto;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.map-card__link:hover,
+.map-card__link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* =============================================
+   TRUST
+   ============================================= */
+
+.trust {
+  background: linear-gradient(180deg, rgba(21, 94, 239, 0.06), rgba(21, 94, 239, 0));
+}
+
+.trust-grid,
+.services-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* =============================================
+   HOW IT WORKS
+   ============================================= */
+
+.how-it-works {
+  background: linear-gradient(180deg, rgba(21, 94, 239, 0.05), transparent);
+}
+
+.steps-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+/* =============================================
+   BRANDS
+   ============================================= */
+
+.brands {
+  background: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(21, 94, 239, 0.06);
+  border-bottom: 1px solid rgba(21, 94, 239, 0.06);
+}
+
+.brands__label {
+  margin: 0 0 1.1rem;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+/* =============================================
+   ABOUT
+   ============================================= */
+
+.about__grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about__content h2 {
+  margin: 0 0 1rem;
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.08;
+}
+
+.about__content p {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+  max-width: 38rem;
+}
+
+.about__highlights {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about__highlight {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(21, 94, 239, 0.1);
+  box-shadow: 0 12px 24px rgba(16, 37, 66, 0.06);
+}
+
+.about__highlight strong {
+  display: block;
+  color: var(--blue-deep);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.about__highlight span {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+.about__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.about__image-wrap {
+  position: relative;
+  width: min(100%, 26rem);
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(21, 94, 239, 0.12), transparent 30%),
+    radial-gradient(circle at 84% 82%, rgba(224, 50, 43, 0.14), transparent 28%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(220, 234, 255, 0.88));
+  border: 1px solid rgba(21, 94, 239, 0.14);
+  box-shadow: var(--shadow);
+}
+
+.about__image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  filter: drop-shadow(0 14px 24px rgba(16, 37, 66, 0.12));
+}
+
+.about__owner-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 1rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(21, 94, 239, 0.12);
+  box-shadow: 0 12px 24px rgba(16, 37, 66, 0.08);
+}
+
+.about__owner-label {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.about__owner-card strong {
+  color: var(--blue-deep);
+  font-size: 1.15rem;
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+}
+
+.about__owner-card span:last-child {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+/* =============================================
+   SERVICES
+   ============================================= */
+
+.services {
+  background:
+    linear-gradient(180deg, rgba(224, 50, 43, 0.03), rgba(224, 50, 43, 0)),
+    transparent;
+  padding-bottom: 0.9rem;
+}
+
+/* =============================================
+   SERVICE AREAS
+   ============================================= */
+
+.service-areas {
+  background: linear-gradient(180deg, rgba(21, 94, 239, 0.04), rgba(21, 94, 239, 0));
+}
+
+.areas-grid {
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(21, 94, 239, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.areas-grid li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(220, 234, 255, 0.4);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.areas-grid__pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--red), #ff5547);
+  color: #fff;
+  font-size: 0.55rem;
+  flex: 0 0 auto;
+}
+
+.areas-note {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.96rem;
+}
+
+.areas-note a {
+  color: var(--blue-deep);
+  font-weight: 800;
+}
+
+/* =============================================
+   REVIEWS
+   ============================================= */
+
+.reviews {
+  background: linear-gradient(180deg, rgba(224, 50, 43, 0.04), rgba(224, 50, 43, 0));
+}
+
+.reviews-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+.review-card {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.4rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(21, 94, 239, 0.08);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.review-card__stars {
+  color: #f4b400;
+  letter-spacing: 0.15em;
+  font-size: 1.05rem;
+}
+
+.review-card p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.review-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.review-card__author strong {
+  color: var(--blue-deep);
+  font-weight: 800;
+}
+
+.review-card__author span {
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+.reviews-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* =============================================
+   FAQ
+   ============================================= */
+
+.faq {
+  background: linear-gradient(180deg, rgba(21, 94, 239, 0.05), rgba(21, 94, 239, 0));
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.faq-item {
+  padding: 1.1rem 1.35rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(21, 94, 239, 0.1);
+  box-shadow: 0 12px 24px rgba(16, 37, 66, 0.06);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.faq-item[open] {
+  border-color: rgba(21, 94, 239, 0.3);
+  box-shadow: 0 18px 32px rgba(16, 37, 66, 0.1);
+}
+
+.faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(21, 94, 239, 0.14), rgba(224, 50, 43, 0.12));
+  color: var(--blue-deep);
+  font-size: 1.3rem;
+  font-weight: 800;
+  flex: 0 0 auto;
+  transition: transform 200ms ease;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+  transform: rotate(180deg);
+}
+
+.faq-item p {
+  margin: 0.85rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* =============================================
+   BOOKING
+   ============================================= */
+
+.booking {
+  padding-top: 0.9rem;
+}
+
+.booking__layout {
+  display: grid;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.booking__intro {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.92));
+  border: 1px solid rgba(16, 37, 66, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
+  gap: 1rem;
+}
+
+.booking__bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.booking__bullets li {
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.booking__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(21, 94, 239, 0.18), rgba(224, 50, 43, 0.18));
+  color: var(--blue-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-right: 0.55rem;
+  flex: 0 0 auto;
+}
+
+.booking__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.booking-emergency {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(16rem, 28vw, 28rem);
+}
+
+.booking-emergency__art {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 34rem);
+  min-height: clamp(13rem, 24vw, 20rem);
+}
+
+.booking-emergency__logo {
+  display: block;
+  width: min(74%, 22rem);
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 28px rgba(16, 37, 66, 0.14));
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 54%, rgba(0,0,0,0.86) 72%, rgba(0,0,0,0.18) 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 54%, rgba(0,0,0,0.86) 72%, rgba(0,0,0,0.18) 90%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.booking-emergency__overlay {
+  position: absolute;
+  top: 50%;
+  left: 57%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translate(-8%, -6%);
+}
+
+.booking-emergency__headline,
+.booking-emergency__subhead {
+  font-family: "Outfit", "Trebuchet MS", sans-serif;
+  color: var(--blue-deep);
+  text-shadow: 0 12px 24px rgba(21, 94, 239, 0.14);
+}
+
+.booking-emergency__headline {
+  font-size: clamp(4.8rem, 12vw, 7.6rem);
+  line-height: 0.86;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.booking-emergency__subhead {
+  margin-top: 0.1rem;
+  margin-left: clamp(1.2rem, 4vw, 3rem);
+  font-size: clamp(1.45rem, 3.8vw, 2.35rem);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.booking-form {
+  display: grid;
+  gap: 1rem;
+}
+
+/* =============================================
+   CTA
+   ============================================= */
+
+.cta-card {
+  display: grid;
+  gap: 1.3rem;
+  align-items: center;
+  padding: 1.6rem;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(21, 94, 239, 0.94), rgba(13, 63, 153, 0.96)),
+    #0d3f99;
+  color: #fff;
+}
+
+.cta-card .eyebrow { color: rgba(255, 255, 255, 0.8); }
+.cta-card h2 { max-width: 16ch; }
+
+/* =============================================
+   CONTACT
+   ============================================= */
+
+.contact__grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contact-social {
+  margin-top: 1.35rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-social__label {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-social__links {
+  display: grid;
+  gap: 0.8rem;
+  width: min(100%, 22rem);
+}
+
+.contact-social__link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.9rem;
+  min-height: 4.4rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(21, 94, 239, 0.12);
+  box-shadow: 0 14px 28px rgba(16, 37, 66, 0.1);
+  color: var(--blue-deep);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.contact-social__link:hover,
+.contact-social__link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(21, 94, 239, 0.26);
+  box-shadow: 0 18px 32px rgba(16, 37, 66, 0.14);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.contact-social__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(21, 94, 239, 0.14), rgba(224, 50, 43, 0.12));
+  color: var(--blue-deep);
+  box-shadow: inset 0 0 0 1px rgba(21, 94, 239, 0.08);
+}
+
+.contact-social__icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: currentColor;
+}
+
+.contact-social__name {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.contact-card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+}
+
+.contact-item + .contact-item {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact-item__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-item a {
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 800;
+}

@@ -1,0 +1,150 @@
+/* =============================================
+   DESIGN TOKENS
+   ============================================= */
+
+:root {
+  --bg: #f5f8fc;
+  --surface: #ffffff;
+  --surface-strong: #e9f2ff;
+  --text: #102542;
+  --text-soft: #51657d;
+  --line: rgba(16, 37, 66, 0.1);
+  --blue: #155eef;
+  --blue-deep: #0d3f99;
+  --blue-soft: #dceaff;
+  --red: #e0322b;
+  --red-deep: #b81f19;
+  --red-soft: #ffe2de;
+  --shadow: 0 20px 50px rgba(16, 37, 66, 0.12);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --container: 1160px;
+}
+
+/* =============================================
+   DARK THEME TOKENS
+   ============================================= */
+
+[data-theme="dark"] {
+  --bg: #0d1b2e;
+  --surface: #112240;
+  --surface-strong: #1a3055;
+  --text: #e8f0fe;
+  --text-soft: #8eafd4;
+  --line: rgba(255, 255, 255, 0.08);
+  --blue: #5b8fee;
+  --blue-deep: #90b4f8;
+  --blue-soft: #1a3055;
+  --red: #e0322b;
+  --red-deep: #ff6b63;
+  --red-soft: #3a1515;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* =============================================
+   DARK MODE COMPONENT OVERRIDES
+   ============================================= */
+
+[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at top left, rgba(224, 50, 43, 0.06), transparent 28%),
+    radial-gradient(circle at top right, rgba(21, 94, 239, 0.1), transparent 26%),
+    var(--bg);
+}
+
+[data-theme="dark"] .topbar {
+  background: rgba(13, 27, 46, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .badge-card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .cta-card,
+[data-theme="dark"] .offer-panel,
+[data-theme="dark"] .booking__intro,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .about__highlight,
+[data-theme="dark"] .step-card,
+[data-theme="dark"] .faq-item {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .areas-grid {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+[data-theme="dark"] .areas-grid li {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+[data-theme="dark"] .brand-badge {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--blue-deep);
+}
+
+[data-theme="dark"] .map-card {
+  border-color: rgba(90, 143, 238, 0.3);
+}
+
+[data-theme="dark"] .topbar__phone-inline {
+  color: var(--blue-deep);
+}
+
+[data-theme="dark"] .contact-social__link {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .mobile-menu {
+  background: rgba(13, 27, 46, 0.98);
+  border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .mobile-menu__link {
+  color: var(--text);
+}
+
+[data-theme="dark"] .footer {
+  background: linear-gradient(180deg, rgba(17, 34, 64, 0.6), rgba(13, 27, 46, 0.4));
+}
+
+[data-theme="dark"] .brands {
+  background: rgba(17, 34, 64, 0.5);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .button--ghost {
+  background: rgba(17, 34, 64, 0.8);
+  color: var(--blue-deep);
+}
+
+[data-theme="dark"] .faq-item[open] {
+  border-color: rgba(90, 143, 238, 0.3);
+}
+
+[data-theme="dark"] .request-form .field input,
+[data-theme="dark"] .request-form .field select,
+[data-theme="dark"] .request-form .field textarea {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+[data-theme="dark"] .floating-actions {
+  background: rgba(13, 27, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .dark-toggle {
+  background: rgba(17, 34, 64, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .dark-toggle svg      { fill: #f0c040; }
+[data-theme="dark"] .dark-toggle__sun     { display: none; }
+[data-theme="dark"] .dark-toggle__moon    { display: block; }
