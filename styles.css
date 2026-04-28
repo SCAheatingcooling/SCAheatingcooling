@@ -230,8 +230,17 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1.1rem 0;
+}
+
+.topbar__brand-group {
+  flex: 0 0 auto;
+}
+
+.topbar__inner > .nav {
+  flex: 1;
+  justify-content: center;
 }
 
 .topbar__brand-group {
@@ -273,7 +282,7 @@ select {
 }
 
 .brand__logo {
-  width: clamp(2.8rem, 8vw, 3.8rem);
+  width: clamp(4rem, 12vw, 6rem);
   height: auto;
   object-fit: contain;
 }
