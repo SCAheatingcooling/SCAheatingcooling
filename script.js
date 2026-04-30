@@ -197,6 +197,31 @@ function showRequestSuccess() {
   }
 }
 
+async function submitRequestForm() {
+  if (!validateForm({ emphasize: true, focusFirst: true })) return;
+
+  const btn = requestContinue;
+  if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+  const data = new FormData(bookingForm);
+  data.append("form_type", "request");
+
+  try {
+    const res  = await fetch("form-handler.php", { method: "POST", body: data });
+    const json = await res.json();
+
+    if (json.success) {
+      showRequestSuccess();
+    } else {
+      alert("Something went wrong. Please call us at (573) 317-7239.");
+    }
+  } catch {
+    alert("Something went wrong. Please call us at (573) 317-7239.");
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = "Submit Request"; }
+  }
+}
+
 requestTriggers.forEach((trigger) => {
   trigger.addEventListener("click", (e) => {
     e.preventDefault();
@@ -209,14 +234,14 @@ requestCloseBtns.forEach((btn) => btn.addEventListener("click", closeRequestModa
 if (requestContinue) {
   requestContinue.addEventListener("click", () => {
     if (!bookingForm) { closeRequestModal(); return; }
-    if (validateForm({ emphasize: true, focusFirst: true })) showRequestSuccess();
+    submitRequestForm();
   });
 }
 
 if (bookingForm) {
   bookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (validateForm({ emphasize: true, focusFirst: true })) showRequestSuccess();
+    submitRequestForm();
   });
 }
 
@@ -299,10 +324,30 @@ if (apptForm) {
     ctrl.addEventListener("input", () => ctrl.classList.remove("is-invalid"));
   });
 
-  apptForm.addEventListener("submit", (e) => {
+  apptForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!validateApptForm()) return;
-    apptForm.hidden = true;
-    if (apptSuccess) apptSuccess.hidden = false;
+
+    const btn = apptForm.querySelector("button[type='submit']");
+    if (btn) { btn.disabled = true; btn.textContent = "Sending..."; }
+
+    const data = new FormData(apptForm);
+    data.append("form_type", "appointment");
+
+    try {
+      const res  = await fetch("form-handler.php", { method: "POST", body: data });
+      const json = await res.json();
+
+      if (json.success) {
+        apptForm.hidden = true;
+        if (apptSuccess) apptSuccess.hidden = false;
+      } else {
+        alert("Something went wrong. Please call us at (573) 317-7239.");
+      }
+    } catch {
+      alert("Something went wrong. Please call us at (573) 317-7239.");
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = "Confirm Appointment Request"; }
+    }
   });
 }
