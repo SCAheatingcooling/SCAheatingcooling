@@ -7,11 +7,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// PHPMailer
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 $to       = 'marialuis1514@gmail.com';
 $type     = $_POST['form_type'] ?? 'request';
-$honeypot = $_POST['website'] ?? '';
+$honeypot = $_POST['website']   ?? '';
 
-// Spam trap
 if (!empty($honeypot)) {
     echo json_encode(['success' => true]);
     exit;
@@ -22,11 +29,11 @@ function clean($value) {
 }
 
 if ($type === 'request') {
-    $name    = clean($_POST['name']    ?? '');
+    $name    = clean($_POST['fullName'] ?? $_POST['name'] ?? '');
     $email   = clean($_POST['email']   ?? '');
     $phone   = clean($_POST['phone']   ?? '');
     $address = clean($_POST['address'] ?? '');
-    $service = clean($_POST['service'] ?? '');
+    $service = clean($_POST['serviceType'] ?? $_POST['service'] ?? '');
     $message = clean($_POST['message'] ?? '');
 
     if (!$name || !$email || !$phone || !$service) {
@@ -74,16 +81,29 @@ if ($type === 'request') {
     $body   .= "Notes:\n$notes\n";
 }
 
-$headers  = "From: no-reply@scahc.com\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+$mail = new PHPMailer(true);
 
-$sent = mail($to, $subject, $body, $headers);
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'marialuis1514@gmail.com';
+    $mail->Password   = 'PONER_APP_PASSWORD_AQUI';   // <-- reemplaza esto
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
-if ($sent) {
+    $mail->setFrom('marialuis1514@gmail.com', 'SCA Heating & Cooling');
+    $mail->addAddress($to);
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = $subject;
+    $mail->Body    = $body;
+
+    $mail->send();
     echo json_encode(['success' => true]);
-} else {
+
+} catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Mail error']);
+    echo json_encode(['success' => false, 'message' => $mail->ErrorInfo]);
 }
 ?>
