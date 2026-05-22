@@ -44,6 +44,7 @@
         </div>
         <nav class="nav" aria-label="Primary" data-i18n-aria-label="aria.primary_nav">
           <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#booking">Book</a>
           <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="topbar__actions">
@@ -64,6 +65,7 @@
               Clear communication, fast dispatch, and dependable service when comfort matters most.
             </p>
             <div class="hero__actions">
+              <a class="button" href="#booking">Book Online</a>
               <a class="button button--ghost" href="tel:+15733177239">Call Now</a>
             </div>
             <div class="hero__stats" aria-label="Key highlights" data-i18n-aria-label="aria.key_highlights">
@@ -196,6 +198,133 @@
         </div>
       </section>
 
+      <!-- ── BOOKING ──────────────────────────────────────────────── -->
+      <section class="booking section" id="booking">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Schedule a Visit</p>
+            <h2>Book a Service Appointment</h2>
+            <p>Choose a date and time that works for you. We'll confirm your appointment immediately.</p>
+          </div>
+
+          <div class="bk-widget reveal reveal--delay" id="bk-widget">
+
+            <!-- Progress Steps -->
+            <div class="bk-steps" aria-label="Booking progress">
+              <div class="bk-step bk-step--active" data-step="1">
+                <span class="bk-step__dot">1</span>
+                <span class="bk-step__lbl">Choose Date</span>
+              </div>
+              <span class="bk-step__line" aria-hidden="true"></span>
+              <div class="bk-step" data-step="2">
+                <span class="bk-step__dot">2</span>
+                <span class="bk-step__lbl">Choose Time</span>
+              </div>
+              <span class="bk-step__line" aria-hidden="true"></span>
+              <div class="bk-step" data-step="3">
+                <span class="bk-step__dot">3</span>
+                <span class="bk-step__lbl">Your Details</span>
+              </div>
+            </div>
+
+            <!-- Panel 1: Calendar -->
+            <div class="bk-panel" id="bk-panel-1">
+              <div class="bk-cal">
+                <div class="bk-cal__head">
+                  <button class="bk-cal__nav" id="bk-cal-prev" type="button" aria-label="Previous month">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                  </button>
+                  <span class="bk-cal__title" id="bk-cal-title" aria-live="polite"></span>
+                  <button class="bk-cal__nav" id="bk-cal-next" type="button" aria-label="Next month">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                  </button>
+                </div>
+                <div class="bk-cal__grid" id="bk-cal-grid" role="grid" aria-label="Select appointment date"></div>
+                <p class="bk-cal__err" id="bk-cal-err" hidden>Unable to load availability. Please try another month or refresh the page.</p>
+              </div>
+              <div class="bk-legend">
+                <span class="bk-legend__item bk-legend__item--open">Available</span>
+                <span class="bk-legend__item bk-legend__item--limited">Limited</span>
+                <span class="bk-legend__item bk-legend__item--unavail">Unavailable</span>
+              </div>
+            </div>
+
+            <!-- Panel 2: Time Slots -->
+            <div class="bk-panel bk-panel--hidden" id="bk-panel-2">
+              <div class="bk-topbar">
+                <button class="bk-back" id="bk-back-1" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                  Back
+                </button>
+                <span class="bk-badge" id="bk-date-badge"></span>
+              </div>
+              <p class="bk-hint">Select an available time slot:</p>
+              <div class="bk-slots" id="bk-slots-grid" role="group" aria-label="Available time slots"></div>
+            </div>
+
+            <!-- Panel 3: Form -->
+            <div class="bk-panel bk-panel--hidden" id="bk-panel-3">
+              <div class="bk-topbar">
+                <button class="bk-back" id="bk-back-2" type="button">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+                  Back
+                </button>
+                <span class="bk-badge" id="bk-slot-badge"></span>
+              </div>
+              <form class="bk-form" id="bk-form" novalidate>
+                <div class="bk-form__fields">
+                  <div class="bk-field">
+                    <label class="bk-field__lbl" for="bkf-name">Full Name <abbr title="required" class="bk-req">*</abbr></label>
+                    <input class="bk-field__inp" id="bkf-name" type="text" placeholder="John Smith" autocomplete="name" required>
+                  </div>
+                  <div class="bk-field">
+                    <label class="bk-field__lbl" for="bkf-phone">Phone Number <abbr title="required" class="bk-req">*</abbr></label>
+                    <input class="bk-field__inp" id="bkf-phone" type="tel" placeholder="(573) 000-0000" autocomplete="tel" required>
+                  </div>
+                  <div class="bk-field">
+                    <label class="bk-field__lbl" for="bkf-email">Email <span class="bk-opt">(optional)</span></label>
+                    <input class="bk-field__inp" id="bkf-email" type="email" placeholder="you@example.com" autocomplete="email">
+                  </div>
+                  <div class="bk-field">
+                    <label class="bk-field__lbl" for="bkf-party">Number of Systems <abbr title="required" class="bk-req">*</abbr></label>
+                    <input class="bk-field__inp" id="bkf-party" type="number" min="1" max="20" value="1" required>
+                  </div>
+                  <div class="bk-field bk-field--full">
+                    <label class="bk-field__lbl" for="bkf-notes">Notes <span class="bk-opt">(optional)</span></label>
+                    <textarea class="bk-field__inp bk-field__txt" id="bkf-notes" rows="3" placeholder="Describe the issue or any special access requirements..."></textarea>
+                  </div>
+                </div>
+                <div class="bk-form__err" id="bk-form-err" role="alert" hidden></div>
+                <button class="button button--block bk-submit" id="bk-submit" type="submit">
+                  <span class="bk-submit__lbl">Confirm Appointment</span>
+                  <span class="bk-submit__spin" aria-hidden="true" hidden>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9" stroke-opacity="0.3"/><path d="M12 3a9 9 0 0 1 9 9"/></svg>
+                  </span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Panel 4: Confirmation -->
+            <div class="bk-panel bk-panel--hidden" id="bk-panel-4">
+              <div class="bk-confirm">
+                <div class="bk-confirm__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="24" cy="24" r="22"/>
+                    <path d="M14 25l8 7 13-14"/>
+                  </svg>
+                </div>
+                <h3 class="bk-confirm__h">Appointment Confirmed!</h3>
+                <p class="bk-confirm__sub">We've received your booking and will see you soon.</p>
+                <div class="bk-confirm__card" id="bk-confirm-card"></div>
+                <button class="button button--ghost" id="bk-restart" type="button">Book Another Appointment</button>
+              </div>
+            </div>
+
+          </div><!-- /bk-widget -->
+        </div>
+      </section>
+      <!-- ── /BOOKING ─────────────────────────────────────────────── -->
+
       <section class="contact section" id="contact">
         <div class="container contact__grid">
           <div class="section-heading reveal">
@@ -279,6 +408,7 @@
   </div>
 
   <div class="floating-actions" aria-label="Quick actions" data-i18n-aria-label="aria.quick_actions">
+    <a class="floating-action" href="#booking">Book Now</a>
     <a class="floating-action floating-action--secondary" href="tel:+15733177239" data-i18n="floating.call_now">Call Now</a>
   </div>
 
